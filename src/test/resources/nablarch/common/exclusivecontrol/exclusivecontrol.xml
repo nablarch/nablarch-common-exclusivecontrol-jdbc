@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ../../../../../main/resources/component-configuration.xsd">
+
+  <!-- db接続情報設定ファイル -->
+  <import file="db-default.xml" />
+
+  <component name="dbManager-default" class="nablarch.core.db.transaction.SimpleDbTransactionManager" />
+
+  <component name="fieldAnnotationCache" class="nablarch.core.cache.BasicStaticDataCache" autowireType="None">
+    <property name="loadOnStartup" value="false" />
+  </component>
+
+  <component name="initializer"
+      class="nablarch.core.repository.initialization.BasicApplicationInitializer">
+    <property name="initializeList">
+      <list>
+        <component-ref name="fieldAnnotationCache" />
+      </list>
+    </property>
+  </component>
+
+  <component name="stringResourceHolder" class="nablarch.test.support.message.MockStringResourceHolder" />
+
+  <component name="basicExclusiveControlManager" class="nablarch.common.exclusivecontrol.BasicExclusiveControlManager">
+    <property name="optimisticLockErrorMessageId" value="MSG00025" />
+  </component>
+
+</component-configuration>
