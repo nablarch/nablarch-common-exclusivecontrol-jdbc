@@ -45,12 +45,16 @@ public class BasicExclusiveControlManagerTest extends ExclusiveControlTestSuppor
     public static void setUpClass() {
         VariousDbTestHelper.createTable(ExclusiveUserMst.class);
         VariousDbTestHelper.createTable(ExclusiveCompMst.class);
+        VariousDbTestHelper.createTable(ExclusiveDummyMst.class);
+        VariousDbTestHelper.createTable(UserMst.class);
     }
 
     @AfterClass
     public static void tearDownClass() {
         VariousDbTestHelper.dropTable(ExclusiveUserMst.class);
         VariousDbTestHelper.dropTable(ExclusiveCompMst.class);
+        VariousDbTestHelper.dropTable(ExclusiveDummyMst.class);
+        VariousDbTestHelper.dropTable(UserMst.class);
     }
 
     @Before
@@ -62,6 +66,8 @@ public class BasicExclusiveControlManagerTest extends ExclusiveControlTestSuppor
 
         VariousDbTestHelper.delete(ExclusiveUserMst.class);
         VariousDbTestHelper.delete(ExclusiveCompMst.class);
+        VariousDbTestHelper.delete(ExclusiveDummyMst.class);
+        VariousDbTestHelper.delete(UserMst.class);
     }
 
     @After
